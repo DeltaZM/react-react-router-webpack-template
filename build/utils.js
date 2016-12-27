@@ -28,8 +28,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract('style-loader', sourceLoader)
     } else {
-      // return ['vue-style-loader', sourceLoader].join('!')
-      return sourceLoader
+      return ['style-loader', sourceLoader].join('!')
     }
   }
 
