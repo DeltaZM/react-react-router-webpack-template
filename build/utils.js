@@ -25,6 +25,12 @@ exports.cssLoaders = function (options) {
       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
     }).join('!')
 
+    if (options.extract) {
+      return ExtractTextPlugin.extract('style-loader', sourceLoader)
+    } else {
+      // return ['vue-style-loader', sourceLoader].join('!')
+      return sourceLoader
+    }
   }
 
   // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
